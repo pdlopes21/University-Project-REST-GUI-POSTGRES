@@ -4,12 +4,10 @@
  - fc60812 Andrea Vivas (Conjunto C1)
 
 
- Video de meia hora WebApp
- https://drive.google.com/file/d/1ybi1gIeRDpWPc8t9MfJOeVAVPBYsCsKj/view
-
- https://www.youtube.com/watch?v=f_SiXUC7-4A
-
-
+ENGLISH CONTEXT:
+Soccer Match Managment System, with both GUI (JavaFX) and Web App. Works with Postgres Database and uses a REST API to process incoming Requests.
+Database Management is done by using Java Hibernate ORM.
+For any doubts, please contact me by email
 
 
 Video Updated WebApp:
