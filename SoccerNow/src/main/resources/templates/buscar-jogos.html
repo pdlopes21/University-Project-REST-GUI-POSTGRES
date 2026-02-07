@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar jogos</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Buscar Jogos</h1>
+
+    <form th:action="@{/buscar-jogos}" method="get">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" th:value="${estado}">
+            <option value="">Todos</option>
+            <option value="Completo">Completado</option>
+            <option value="Por Realizar">Por Realizar</option>
+        </select>
+
+        <label for="golosMin">Mínimo de Golos:</label>
+        <input type="number" id="minGolos" name="minGolos" th:value="${minGolos}">
+        <label for="golosMax">Máximo de Golos:</label>
+        <input type="number" id="maxGolos" name="maxGolos" th:value="${maxGolos}">
+
+        <label for="turno">Turno:</label>
+        <select id="turno" name="turno" th:value="${turno}">
+            <option value="">Todos</option>
+            <option value="manha">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+        </select>
+
+        <label for="localizacao">Localização:</label>
+        <input type="text" id="localizacao" name="localizacao" th:value="${localizacao}">
+
+        <button type="submit" class="btn-submit">Pesquisar</button>
+    </form>
+
+    <h2>Resultados</h2>
+    <table>
+        <thead>
+           <tr>
+                <th>Data</th>
+                <th>Equipa Casa</th>
+                <th>Equipa Fora</th>
+                <th>Golos Casa</th>
+                <th>Golos Fora</th>
+                <th>Localização</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="jogo : ${jogos}">
+                <td th:text="${jogo.dataJogo}"></td>
+                <td th:text="${jogo.equipaCasa.nome}"></td>
+                <td th:text="${jogo.equipaVisitante.nome}"></td>
+                <td th:text="${#lists.size(jogo.golosCasa)}"></td>
+                <td th:text="${#lists.size(jogo.golosVisitante)}"></td>
+                <td th:text="${jogo.local.nome}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p> </p>
+    <form action="/voltar-dashboard" method="get">
+        <button type="submit">Voltar atrás</button>
+    </form>
+
+    <p><small>SoccerNow: Gestão de Jogos de Futsal</small></p>
+</body>
+</html>

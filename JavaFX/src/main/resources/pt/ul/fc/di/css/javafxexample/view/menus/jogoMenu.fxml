@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.di.css.javafxexample.controller.JogoMenuController">
+   <children>
+      <Text layoutX="306.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MenuJogo">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="8.0" layoutY="61.0" prefHeight="17.0" prefWidth="752.0" textAlignment="CENTER" textFill="#ff0303" />
+      <SplitPane dividerPositions="0.31243781094527356" layoutX="7.0" layoutY="79.0" prefHeight="428.0" prefWidth="805.0">
+        <items>
+            <ListView fx:id="listJogos" prefHeight="409.0" prefWidth="300.0" />
+            <SplitPane dividerPositions="0.2678236397748593, 0.5586303939962477" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TextField fx:id="nomeEquipaVisitanteField" editable="false" layoutX="409.0" layoutY="14.0" prefHeight="26.0" prefWidth="131.0" text="Equipa Visitante" />
+                        <TextField fx:id="nomeEquipaCasaField" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="131.0" text="Equipa Casa" />
+                        <Button fx:id="completeUpdateArbitroButton" layoutX="254.0" layoutY="35.0" mnemonicParsing="false" onAction="#completeUpdateArbitro" prefHeight="26.0" prefWidth="155.0" text="Complete Update" visible="false" />
+                        <Text layoutX="266.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="golosCasaText" layoutX="205.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Null">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="golosVisitanteText" layoutX="332.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Null">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="campeonatoText" layoutX="218.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campeonato">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="arbitroPrincipalField" layoutX="194.0" layoutY="78.0" prefHeight="26.0" prefWidth="178.0" text="Arbitro Principal" />
+                        <Button fx:id="completeUpdateArbitroButton" layoutX="383.0" layoutY="78.0" mnemonicParsing="false" onAction="#completeUpdateArbitro" prefHeight="26.0" prefWidth="155.0" text="Update(inserir Id)" />
+                     </children>
+                  </AnchorPane>
+                  <ListView fx:id="listArbitros" prefHeight="200.0" prefWidth="200.0" />
+                  <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                        <ListView fx:id="listGolosCasa" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="listGolosVisitante" prefHeight="200.0" prefWidth="200.0" />
+                    </items>
+                  </SplitPane>
+              </items>
+            </SplitPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="startUpdateArbitroButton" layoutX="14.0" layoutY="546.0" mnemonicParsing="false" onAction="#startUpdateArbitro" prefHeight="26.0" prefWidth="155.0" text="UpdateArbitroPrincipal" />
+      <Button fx:id="updateJogoButton" layoutX="180.0" layoutY="546.0" mnemonicParsing="false" onAction="#updateJogo" prefHeight="26.0" prefWidth="147.0" text="UpdateJogo" />
+      <Button fx:id="deleteJogoButton" layoutX="338.0" layoutY="546.0" mnemonicParsing="false" onAction="#startDeleteJogo" prefHeight="26.0" prefWidth="114.0" text="Delete Jogo" />
+      <Button fx:id="backButton" layoutX="624.0" layoutY="547.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="170.0" text="Back" />
+      <Pane fx:id="confirmDeletePane" layoutX="168.0" layoutY="120.0" prefHeight="329.0" prefWidth="456.0" style="-fx-background-color: black;" visible="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Text fill="RED" layoutX="88.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tem a certeza que pretende apagar o Jogo?" wrappingWidth="280.79996337890634">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Button fx:id="confirmDeleteButton" layoutX="62.0" layoutY="202.0" mnemonicParsing="false" onAction="#confirmDelete" prefHeight="37.0" prefWidth="140.0" text="Sim" />
+            <Button fx:id="cancelDeleteButton" layoutX="276.0" layoutY="202.0" mnemonicParsing="false" onAction="#cancelDelete" prefHeight="37.0" prefWidth="122.0" text="Não" />
+         </children>
+      </Pane>
+      <Button fx:id="endJogoButton" layoutX="461.0" layoutY="547.0" mnemonicParsing="false" onAction="#endJogo" prefHeight="26.0" prefWidth="140.0" text="Registar Resultado" />
+   </children>
+</AnchorPane>

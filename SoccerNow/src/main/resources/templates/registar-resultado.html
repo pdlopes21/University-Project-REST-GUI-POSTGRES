@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registar Resultado</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Registar Resultado do Jogo</h1>
+
+    <div th:if="${sucesso != null}" style="color: green;  margin-bottom: 20px;">
+        <p th:text="${sucesso}">Resultado registado com sucesso!</p>
+    </div>
+
+    <div th:if="${erro != null}" style="color: red;  margin-bottom: 20px;">
+        <p th:text="${erro}">Erro ao registar o resultado!</p>
+    </div>
+
+    <p> </p>
+
+    <form action="/registar-resultado" method="post">
+        <label for="jogoId">ID do Jogo:</label>
+        <input type="number" id="jogoId" name="jogoId" placeholder="ID do Jogo" required><br><br>
+
+        <h2>Jogadores da Equipa da Casa</h2>
+        <label>ID dos jogadores da equipa da Casa (um deles tem de ser GR):</label><br><br>
+        <div id="IDEquipaCasa">
+            <input type="number" name="IDEquipaCasa" placeholder="ID do 1º Jogador" required>
+        </div>
+        <button type="button" onclick="adicionarJogador('IDEquipaCasa', 5)">Adicionar Jogador (obrigatório 5)</button><br><br>
+
+        <h2>Jogadores da Equipa Visitante</h2>
+        <label>ID dos jogadores da equipa Visitante (um deles tem de ser GR):</label><br><br>
+        <div id="IDEquipaVisitante">
+            <input type="number" name="IDEquipaVisitante" placeholder="ID do 1º Jogador" required>
+        </div>
+        <button type="button" onclick="adicionarJogador('IDEquipaVisitante', 5)">Adicionar Jogador (obrigatório 5)</button><br><br>
+
+        <h2>Arbitro Principal</h2>
+        <label for="arbitroMain">ID do Arbitro Principal:</label>
+        <input type="number" id="arbitroMain" name="arbitroMain" placeholder="ID do Arbitro Principal" required><br><br>
+
+        <h2>Restantes Arbitros</h2>
+        <label>ID dos restantes arbitros:</label><br><br>
+        <div id="arbitros">
+            <input type="number" name="arbitros" placeholder="ID do 1º Arbitro">
+        </div>
+        <button type="button" onclick="adicionarArbitro('arbitros')"> Adicionar Arbitro </button>
+        <button type="button" onclick="removerCampo('arbitros')"> Remover Arbitro </button>
+
+        <h2>Golos da Equipa da Casa</h2>
+        <label>ID dos jogadores que marcaram golos (Casa):</label><br><br>
+        <div id="IDGolosCasa">
+            <input type="number" name="IDGolosCasa" placeholder="ID do 1º Jogador">
+        </div>
+        <button type="button" onclick="adicionarCampo('IDGolosCasa')"> Adicionar Jogador </button>
+        <button type="button" onclick="removerCampo('IDGolosCasa')"> Remover Jogador </button>
+
+        <h2>Golos da Equipa Visitante</h2>
+        <label>ID dos jogadores que marcaram golos (Visitante):</label><br><br>
+        <div id="IDGolosVisitante">
+            <input type="number" name="IDGolosVisitante" placeholder="ID do 1º Jogador">
+        </div>
+        <button type="button" onclick="adicionarCampo('IDGolosVisitante')"> Adicionar Jogador </button>
+        <button type="button" onclick="removerCampo('IDGolosVisitante')"> Remover Jogador </button>
+
+        <h2>Jogadores com Cartão Amarelo</h2>
+        <label>ID dos jogadores com cartões amarelos:</label><br><br>
+        <div id="IDCartoesAmarelos">
+            <input type="number" name="IDCartoesAmarelos" placeholder="ID do 1º Jogador">
+        </div>
+        <button type="button" onclick="adicionarCampo('IDCartoesAmarelos')"> Adicionar Jogador </button>
+        <button type="button" onclick="removerCampo('IDCartoesAmarelos')"> Remover Jogador </button>
+
+        <h2>Jogadores com Cartão Vermelho</h2>
+        <label>ID dos jogadores com cartão vermelho:</label><br><br>
+        <div id="IDCartoesVermelhos">
+            <input type="number" name="IDCartoesVermelhos" placeholder="ID do 1º Jogador">
+        </div>
+        <button type="button" onclick="adicionarCampo('IDCartoesVermelhos')"> Adicionar Jogador </button>
+        <button type="button" onclick="removerCampo('IDCartoesVermelhos')"> Remover Jogador </button>
+
+        <button type="submit">Registar Resultado</button>
+    </form>
+    
+    <form action="/voltar-dashboard" method="get">
+        <button type="submit">Voltar atrás</button>
+    </form>
+
+    <p><small>SoccerNow: Gestão de Jogos de Futsal</small></p>
+
+    <script src="/js/registarResultado.js"></script>
+</body>
+</html>

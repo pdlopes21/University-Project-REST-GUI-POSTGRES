@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Jogadores</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Buscar Jogadores</h1>
+
+    <form action="#" th:action="@{/buscar-jogadores}" method="get">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" th:value="${nome}"><br><br>
+
+        <label for="posicao">Posição:</label>
+        <select id="posicao" name="posicao">
+            <option value="" th:selected="${posicao == null}">Selecione...</option>
+            <option value="JC" th:selected="${posicao == 'JC'}">JC</option>
+            <option value="GR" th:selected="${posicao == 'GR'}">GR</option>
+        </select><br><br>
+
+        <label for="minGolos">Golos (mín):</label>
+        <input type="number" id="minGolos" name="minGolos" th:value="${minGolos}">
+        <label for="maxGolos">Golos (máx):</label>
+        <input type="number" id="maxGolos" name="maxGolos" th:value="${maxGolos}"><br><br>
+
+        <label for="minCartoesAmarelos">Cartões Amarelos (mín):</label>
+        <input type="number" id="minCartoesAmarelos" name="minCartoesAmarelos" th:value="${minCartoesAmarelos}">
+        <label for="maxCartoesAmarelos">Cartões Amarelos (máx):</label>
+        <input type="number" id="maxCartoesAmarelos" name="maxCartoesAmarelos" th:value="${maxCartoesAmarelos}"><br><br>
+
+        <label for="minCartoesVermelhos">Cartões Vermelhos (mín):</label>
+        <input type="number" id="minCartoesVermelhos" name="minCartoesVermelhos" th:value="${minCartoesVermelhos}">
+        <label for="maxCartoesVermelhos">Cartões Vermelhos (máx):</label>
+        <input type="number" id="maxCartoesVermelhos" name="maxCartoesVermelhos" th:value="${maxCartoesVermelhos}"><br><br>
+
+        <label for="minJogos">Jogos (mín):</label>
+        <input type="number" id="minJogos" name="minJogos" th:value="${minJogos}">
+        <label for="maxJogos">Jogos (máx):</label>
+        <input type="number" id="maxJogos" name="maxJogos" th:value="${maxJogos}"><br><br>
+        
+        <button type="submit" class="btn-submit">Pesquisar</button>
+    </form>
+    
+    <h2>Jogadores Encontrados:</h2>
+    <div th:if="${#lists.isEmpty(jogadores)}">
+        <p>Nenhum jogador encontrado.</p>
+    </div>
+
+    <ul>
+        <li th:each="jogador : ${jogadores}">
+            <p><strong>Nome: </strong> <span th:text="${jogador.getNome()}">Nome do Jogador </span></p>
+            <p><strong>Posição: </strong> <span th:text="${jogador.getPosicao()}">Posição </span> </p>
+            <p><strong>Golos Marcados: </strong> <span th:text="${jogador.getEstatisticas().getGolos()}">Golos Marcados </span></p>
+            <p><strong>Cartões Amarelos: </strong> <span th:text="${jogador.getEstatisticas().getCartoesAmarelos()}">Cartões Amarelos </span></p>
+            <p><strong>Cartões Vermelhos: </strong> <span th:text="${jogador.getEstatisticas().getCartoesVermelhos()}">Cartões Vermelhos </span></p>
+            <p><strong>Jogos Realizados: </strong> <span th:text="${jogador.getEstatisticas().totalJogosJogados()}">Jogos Realizados </span></p>
+        </li>
+    </ul>
+
+    <form action="/voltar-dashboard" method="get">
+        <button type="submit">Voltar atrás</button>
+    </form>
+
+    <p><small>SoccerNow: Gestão de Jogos de Futsal</small></p>
+</body>
+</html>

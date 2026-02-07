@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.di.css.javafxexample.controller.InitController">
+   <children>
+      <Button fx:id="mainLoginButton" layoutX="106.0" layoutY="300.0" mnemonicParsing="false" onAction="#startLogin" prefHeight="55.0" prefWidth="127.0" text="Login">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="mainSignUpButton" layoutX="366.0" layoutY="300.0" mnemonicParsing="false" onAction="#startSignUp" prefHeight="55.0" prefWidth="127.0" text="SignUp" />
+      <Text layoutX="189.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoccerNowJavaFX">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

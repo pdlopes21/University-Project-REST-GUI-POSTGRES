@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Equipas</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Buscar Equipas</h1>
+
+    <form action="#" th:action="@{/buscar-equipas}" method="get">
+        <label for="nome">Nome da Equipa:</label>
+        <input type="text" id="nome" name="nome" th:value="${nome}"><br><br>
+
+        <label for="minNumeroDeJogadores">Número Mínimo de Jogadores:</label>
+        <input type="number" id="minNumeroDeJogadores" name="minNumeroDeJogadores" th:value="${minNumeroDeJogadores}"><br><br>
+        <label for="maxNumeroDeJogadores">Número Máximo de Jogadores:</label>
+        <input type="number" id="maxNumeroDeJogadores" name="maxNumeroDeJogadores" th:value="${maxNumeroDeJogadores}"><br><br>
+
+        <label for="minNumeroDeVitorias">Número Mínimo de Vitórias:</label>
+        <input type="number" id="minNumeroDeVitorias" name="minNumeroDeVitorias" th:value="${minNumeroDeVitorias}"><br><br>
+        <label for="maxNumeroDeVitorias">Número Máximo de Vitórias:</label>
+        <input type="number" id="maxNumeroDeVitorias" name="maxNumeroDeVitorias" th:value="${maxNumeroDeVitorias}"><br><br>
+
+        <label for="minNumeroDeEmpates">Número Mínimo de Empates:</label>
+        <input type="number" id="minNumeroDeEmpates" name="minNumeroDeEmpates" th:value="${minNumeroDeEmpates}"><br><br>
+        <label for="maxNumeroDeEmpates">Número Máximo de Empates:</label>
+        <input type="number" id="maxNumeroDeEmpates" name="maxNumeroDeEmpates" th:value="${maxNumeroDeEmpates}"><br><br>
+
+        <label for="minNumeroDeDerrotas">Número Mínimo de Derrotas:</label>
+        <input type="number" id="minNumeroDeDerrotas" name="minNumeroDeDerrotas" th:value="${minNumeroDeDerrotas}"><br><br>
+        <label for="maxNumeroDeDerrotas">Número Máximo de Derrotas:</label>
+        <input type="number" id="maxNumeroDeDerrotas" name="maxNumeroDeDerrotas" th:value="${maxNumeroDeDerrotas}"><br><br>
+
+        <label for="minConquistas">Mínimo de Conquistas:</label>
+        <input type="number" id="minConquistas" name="minConquistas" th:value="${minConquistas}"><br><br>
+        <label for="maxConquistas">Máximo de Conquistas:</label>
+        <input type="number" id="maxConquistas" name="maxConquistas" th:value="${maxConquistas}"><br><br>
+
+        <label for="ausenciaPosicaoNumero">Número Máximo de Jogadores na Posição:</label>
+        <input type="number" id="ausenciaPosicaoNumero" name="ausenciaPosicaoNumero" th:value="${ausenciaPosicaoNumero}"><br><br>
+
+        <label for="ausenciaPosicao">Posição (JC ou GR):</label>
+        <select id="ausenciaPosicao" name="ausenciaPosicao">
+            <option value="" th:selected="${ausenciaPosicao == null}">Selecione...</option>
+            <option value="JC" th:selected="${ausenciaPosicao == 'JC'}">JC</option>
+            <option value="GR" th:selected="${ausenciaPosicao == 'GR'}">GR</option>
+        </select><br><br>
+        
+        <button type="submit" class="btn-submit">Pesquisar</button>
+    </form>
+    
+    <h2>Equipas Encontradas:</h2>
+    <div th:if="${#lists.isEmpty(equipas)}">
+        <p>Nenhuma equipa encontrada.</p>
+    </div>
+
+    <ul>
+        <li th:each="equipa : ${equipas}">
+            <p><strong>Nome: </strong> <span th:text="${equipa.getNome()}">Nome da Equipa </span></p>
+            <p><strong>Número de Jogadores: </strong> <span th:text="${equipa.getJogadores().size()}">Número de Jogadores </span></p>
+            <p><strong>Vitorias: </strong> <span th:text="${equipa.getEstatisticas().getVitorias()}">Vitórias </span></p>
+            <p><strong>Empates: </strong> <span th:text="${equipa.getEstatisticas().getEmpates()}">Empates </span></p>
+            <p><strong>Derrotas: </strong> <span th:text="${equipa.getEstatisticas().getDerrotas()}">Derrotas </span></p>
+            <p><strong>Número de Podios: </strong> <span th:text="${equipa.getPodios().size()}">Número de Podios </span></p>
+        </li>
+    </ul>
+
+    <form action="/voltar-dashboard" method="get">
+        <button type="submit">Voltar atrás</button>
+    </form>
+
+    <p><small>SoccerNow: Gestão de Jogos de Futsal</small></p>  
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Bem-vindo, <span th:text="${username}">Usuário</span></h1>
+    <p>Você está autenticado com sucesso!</p>
+
+    <div class="dashboard-container">
+        <div class="dashboard-item">
+            <h2><a href="/buscar-arbitros">Pesquisar Árbitros</a></h2>
+            <p>Encontre árbitros filtrando por nome, número de jogos e cartões.</p>
+        </div>
+        
+        <div class="dashboard-item">
+            <h2><a href="/buscar-equipas">Pesquisar Equipas</a></h2>
+            <p>Encontre equipas filtrando por nome, número de jogadores, vitórias, empates, derrotas e conquistas.</p>
+        </div>
+        
+        <div class="dashboard-item">
+            <h2><a href="/buscar-jogos">Pesquisar Jogos</a></h2>
+            <p>Encontre jogos filtrando por jogos realizados, golos, localização e turno.</p>
+        </div>
+
+        <div class="dashboard-item">
+            <h2><a href="/buscar-campeonatos">Pesquisar Campeonatos</a></h2>
+            <p>Encontre campeonatos filtrando por nome, equipa, número de jogos realizados e a realizar.</p>
+        </div>
+
+        <div class="dashboard-item">
+            <h2><a href="/buscar-jogadores">Pesquisar Jogadores</a></h2>
+            <p>Encontre jogadores filtrando por nome, posição, número de golos, cartões e jogos.</p>
+        </div>
+
+        <div class="dashboard-item">
+            <h2><a href="/registar-resultado">Registar Resultado</a></h2>
+            <p>Registe o resultado de um jogo entre duas equipas.</p>
+        </div>
+    </div>
+    
+    <a href="/logout">Sair</a> 
+
+    <p><small>SoccerNow: Gestão de Jogos de Futsal</small></p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.di.css.javafxexample.controller.RegistarResultadoController">
+   <children>
+      <Text layoutX="317.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registar Resultado">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="193.0" layoutY="68.0" prefHeight="18.0" prefWidth="390.0" />
+      <SplitPane dividerPositions="0.5" layoutX="69.0" layoutY="118.0" prefHeight="186.0" prefWidth="286.0">
+        <items>
+            <ListView fx:id="listJogadoresCasa" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listGolosCasa" prefHeight="200.0" prefWidth="200.0" />
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.4992977528089888" layoutX="482.0" layoutY="118.0" prefHeight="188.0" prefWidth="286.0">
+        <items>
+            <ListView fx:id="listJogadoresVisitante" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listGolosVisitante" prefHeight="200.0" prefWidth="200.0" />
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5168539325842697" layoutX="59.0" layoutY="383.0" prefHeight="190.0" prefWidth="286.0">
+        <items>
+            <ListView fx:id="listJogadores1" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listAmarelo" prefHeight="200.0" prefWidth="200.0" />
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5077464788732394" layoutX="483.0" layoutY="384.0" prefHeight="189.0" prefWidth="285.0">
+        <items>
+            <ListView fx:id="listJogadores2" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listVermelho" prefHeight="200.0" prefWidth="200.0" />
+        </items>
+      </SplitPane>
+      <Text layoutX="164.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Golos Casa" />
+      <Text layoutX="597.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Golos Fora" />
+      <Text layoutX="146.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartoes Amarelos" />
+      <Text layoutX="579.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartoes Vermelhos" />
+      <Button fx:id="addGoloCasaButton" layoutX="69.0" layoutY="316.0" mnemonicParsing="false" onAction="#addGoloCasa" prefHeight="26.0" prefWidth="127.0" text="Add" />
+      <Button fx:id="removeGoloCasaButton" layoutX="233.0" layoutY="317.0" mnemonicParsing="false" onAction="#removeGoloCasa" prefHeight="26.0" prefWidth="117.0" text="Remove" />
+      <Button fx:id="addAmareloButton" layoutX="59.0" layoutY="584.0" mnemonicParsing="false" onAction="#addAmarelo" prefHeight="26.0" prefWidth="137.0" text="Add" />
+      <Button fx:id="removeAmareloButton" layoutX="213.0" layoutY="585.0" mnemonicParsing="false" onAction="#removeAmarelo" prefHeight="26.0" prefWidth="127.0" text="Remove" />
+      <Button fx:id="addGoloVisitanteButton" layoutX="480.0" layoutY="317.0" mnemonicParsing="false" onAction="#addGoloVisitante" prefHeight="26.0" prefWidth="134.0" text="Add" />
+      <Button fx:id="removeGoloVisitanteButton" layoutX="646.0" layoutY="318.0" mnemonicParsing="false" onAction="#removeGoloVisitante" prefHeight="26.0" prefWidth="118.0" text="Remove" />
+      <Button fx:id="addVermelhoButton" layoutX="483.0" layoutY="586.0" mnemonicParsing="false" onAction="#addVermelho" prefHeight="26.0" prefWidth="139.0" text="Add" />
+      <Button fx:id="removeVermelhoButton" layoutX="646.0" layoutY="585.0" mnemonicParsing="false" onAction="#removeVermelho" prefHeight="26.0" prefWidth="118.0" text="Remove" />
+      <Button fx:id="backButton" layoutX="375.0" layoutY="585.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="78.0" text="Back" />
+      <Button fx:id="registarResultadoButton" layoutX="371.0" layoutY="328.0" mnemonicParsing="false" onAction="#registarResultado" prefHeight="85.0" prefWidth="86.0" text="Registar" />
+   </children>
+</AnchorPane>

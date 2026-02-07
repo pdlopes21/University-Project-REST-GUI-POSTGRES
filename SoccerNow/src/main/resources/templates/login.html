@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>SoccerNow: Gestão de Jogos de Futsal</h1>
+
+    <div th:if="${error != null}" style="color: red; margin-bottom: 20px;">
+        <p th:text="${error}">Erro de login</p>
+    </div>
+    
+    <form action="/login" method="post">
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="tipo">Tipo de Usuário:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="jogador">Jogador</option>
+            <option value="arbitro">Árbitro</option>
+        </select><br><br>
+
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
